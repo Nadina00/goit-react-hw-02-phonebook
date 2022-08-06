@@ -39,7 +39,6 @@ export class ContactForm extends React.Component {
    
 
     handleChange = evt => {
-        console.log(evt.target.value)
         this.setState({
         [evt.target.name]: evt.target.value, 
         id: nanoid()

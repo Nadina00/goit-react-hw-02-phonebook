@@ -18,14 +18,14 @@ export class App extends React.Component {
   }
 
 addContactList = data => {
-  
-   {this.state.contacts.find(contact =>
-       contact.name.toLowerCase() === data.name.toLowerCase()) 
+  const searchName = data.name.toLowerCase()
+   this.state.contacts.find(contact =>
+       contact.name.toLowerCase() === searchName) 
       ? (alert ("contact is already in contacts")):
   (this.setState(prevState =>({
     contacts: [...prevState.contacts, data]
 
-  })))}
+  })))
 }
 
 handleDelete = evt => {
@@ -71,7 +71,7 @@ handleFindChange = evt => {
 App.protoType = {
   state:PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.number,]),
+   PropTypes.number]),
     filter:PropTypes.string.isRequired
 
 }
