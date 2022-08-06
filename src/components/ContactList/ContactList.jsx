@@ -2,12 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components"
 
-
-export const ContactList = ({contacts, onClick}) =>{
-    const List = styled.li`
-    list-style: none;
-  `;
-    const Btn = styled.button`
+const List = styled.li`
+list-style: none;
+`;
+const Btn = styled.button`
 color: palevioletred;
 font-size: 30px;
 margin: 10px;
@@ -16,11 +14,14 @@ border: 2px solid palevioletred;
 border-radius: 3px;
 
 :hover {
-  color: red;
-  font-size: 35px;
+color: red;
+font-size: 35px;
 
 }
 `;
+
+export const ContactList = ({contacts, onClick}) =>{
+   
     return(
         <ul>
             {contacts.map(contact =>{

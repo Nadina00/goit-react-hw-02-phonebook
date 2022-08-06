@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components"
 
-
-export const Filter = ({value, onChange})=>{
-  const Input = styled.input`
+const Input = styled.input`
   font-size: 25px;
   padding: 10px;
   margin: 10px;
@@ -14,6 +12,9 @@ export const Filter = ({value, onChange})=>{
     color: palevioletred;
   }
 `;
+
+export const Filter = ({value, onChange})=>{
+  
 return(
 <label htmlFor=''>Find contacts by name
   <Input
