@@ -28,9 +28,11 @@ addContactList = data => {
   })))
 }
 
-handleDelete = evt => {
+handleDelete = (contId) => {
+ 
   this.setState(prevState => ({
-    contacts: prevState.contacts.filter(contact => contact.id !== evt.target.id),
+    contacts: prevState.contacts.filter(({id}) => id !== contId
+    ),
   }));
 };
 
@@ -61,7 +63,7 @@ handleFindChange = evt => {
   <h1>Phonebook</h1>
 <ContactForm onSubmit={this.addContactList}/> 
 <h2>Contacts</h2>  
-<ContactList contacts ={filterContact} onClick = {this.handleDelete} />
+<ContactList contacts ={filterContact} onLeaveFeedback = {this.handleDelete} />
 <Filter value={this.state.filter} onChange={this.handleFindChange}/>
 
     </div>

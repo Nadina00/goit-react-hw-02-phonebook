@@ -1,17 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from "styled-components"
+import {Input} from './Filter.styled'
 
-const Input = styled.input`
-  font-size: 25px;
-  padding: 10px;
-  margin: 10px;
-  background: papayawhip;
-  border-radius: 3px;
-  :hover {
-    color: palevioletred;
-  }
-`;
+
 
 export const Filter = ({value, onChange})=>{
   
