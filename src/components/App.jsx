@@ -18,20 +18,19 @@ export class App extends React.Component {
   }
 
 addContactList = data => {
-  const searchName = data.name.toLowerCase()
-   this.state.contacts.find(contact =>
-       contact.name.toLowerCase() === searchName) 
-      ? (alert ("contact is already in contacts")):
+const searchName = data.name.toLowerCase()
+this.state.contacts.find(contact =>
+contact.name.toLowerCase() === searchName) 
+? (alert ("contact is already in contacts")):
   (this.setState(prevState =>({
-    contacts: [...prevState.contacts, data]
+contacts: [...prevState.contacts, data]
 
   })))
 }
 
 handleDelete = (contId) => {
- 
-  this.setState(prevState => ({
-    contacts: prevState.contacts.filter(({id}) => id !== contId
+this.setState(prevState => ({
+contacts: prevState.contacts.filter(({id}) => id !== contId
     ),
   }));
 };
@@ -48,32 +47,20 @@ handleFindChange = evt => {
     const filterContact = this.state.contacts.filter(contacts => 
       contacts.name.toLowerCase().includes(this.state.filter.toLowerCase())) 
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'block',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-
-         >
-  
-  <h1>Phonebook</h1>
+    <div>
+<h1>Phonebook</h1>
 <ContactForm onSubmit={this.addContactList}/> 
 <h2>Contacts</h2>  
 <ContactList contacts ={filterContact} onLeaveFeedback = {this.handleDelete} />
 <Filter value={this.state.filter} onChange={this.handleFindChange}/>
-
     </div>
   );
 };
 }
 App.protoType = {
   state:PropTypes.oneOfType([
-    PropTypes.string,
-   PropTypes.number]),
-    filter:PropTypes.string.isRequired
+  PropTypes.string,
+  PropTypes.number]),
+  filter:PropTypes.string.isRequired
 
 }
